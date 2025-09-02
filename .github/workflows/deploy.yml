@@ -18,6 +18,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Remove middleware for static export
+        run: |
+          rm -f middleware.ts middleware.js src/middleware.ts src/middleware.js
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -27,18 +31,18 @@ jobs:
       - name: Install deps
         run: npm ci
 
-      - name: Build
-        run: npm run build
+      - name: Build (Next.js static export)
+        run: |
+          npm run build
+          npm run export
 
-      # Konfiguruje Pages (ustawia m.in. baseUrl, publ. target)
       - name: Configure Pages
-        id: pages
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: out
 
   deploy:
     needs: build
