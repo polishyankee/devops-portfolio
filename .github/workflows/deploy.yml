@@ -18,6 +18,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Jeśli masz plik middleware.* (blokuje eksport) – usuń go w CI:
       - name: Remove middleware for static export
         run: |
           rm -f middleware.ts middleware.js src/middleware.ts src/middleware.js
@@ -31,10 +32,11 @@ jobs:
       - name: Install deps
         run: npm ci
 
-      - name: Build (Next.js static export)
-        run: |
-          npm run build
-          npm run export
+      - name: Build (static export via next build)
+        run: npm run build
+
+      - name: Show build output (debug)
+        run: ls -la && ls -la out || true
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
