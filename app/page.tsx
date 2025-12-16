@@ -203,11 +203,6 @@ export default function Home() {
   						  about trust, insight, and sustainability.
   						</p>
   						<p>
-  						  Outside of tech, I play a lot of board games (especially social deduction —
-  						  Secret Hitler is my favorite), enjoy spirited discussions on politics and
-  						  government, and love traveling, reading, and exploring new cultures.
-  						</p>
-  						<p>
   						  I strive to bring energy, technical depth, and a growth mindset to every
   						  team I’m part of, always looking for ways to automate the boring stuff so
   						  we can focus on what really matters.
