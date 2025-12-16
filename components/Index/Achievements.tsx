@@ -8,24 +8,24 @@ export const Achievements = () => (
       title="Certified DevSecOps Foundation"
       tags={['DevSecOps', 'Security', 'DevOps Institute']}
     >
-      Certyfikat potwierdzający znajomość zasad integracji bezpieczeństwa w całym cyklu życia
-      oprogramowania (DevSecOps Foundation).
+      Certification validating knowledge of integrating security across the full software delivery lifecycle
+      (DevSecOps Foundation).
     </Card>
 
     <Card
       title="Certified DevSecOps Practitioner"
       tags={['DevSecOps', 'Security', 'DevOps Institute']}
     >
-      Zaawansowany certyfikat obejmujący praktyczne wdrażanie procesów DevSecOps, automatyzację
-      zabezpieczeń i zgodność regulacyjną.
+      Advanced certification focused on hands-on DevSecOps implementation, security automation, and regulatory
+      compliance.
     </Card>
 
     <Card
       title="CKA – Certified Kubernetes Administrator"
       tags={['Kubernetes', 'Cloud Native', 'CNCF']}
     >
-      Certyfikat potwierdzający umiejętności w zakresie administracji Kubernetes: instalacja,
-      konfiguracja, utrzymanie i rozwiązywanie problemów w klastrach produkcyjnych.
+      Certification confirming Kubernetes administration skills: installation, configuration, operations, and
+      troubleshooting of production clusters.
     </Card>
   </CardGrid>
 );
