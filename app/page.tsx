@@ -146,7 +146,7 @@ export default function Home() {
   								I build reliable systems, automate workflows, play board games, and explore big ideas.
 							</LinkToSection>
 							<LinkToSection title="Work Experience" href="experience">
-								I work at Asseco Poland.
+								I support most of Poland&rsquo;s commercial banks, cooperative banks, and SKOK credit unions.
 							</LinkToSection>
 							<LinkToSection title="Projects" href="projects">
   								I design and deliver DevOps solutions: CI/CD standardization, GitOps, multi-region K8s, cloud migrations, and security automation.
@@ -236,9 +236,21 @@ export default function Home() {
 						  <a href="https://asseco.com/" className={linkClasses}>
 						    Asseco Poland SA
 						  </a>
-						  , one of the largest IT companies in Central and Eastern Europe. My focus is
-						  on CI/CD standardization, automation, Kubernetes, cloud solutions, and
-						  improving system reliability for enterprise and banking clients.
+						  , one of the largest IT companies in Central and Eastern Europe, where I
+						  support platforms used across most of Poland&rsquo;s commercial banks,
+						  cooperative banks, and SKOK credit unions.
+						</p>
+						<p className="pt-4">
+						  Most of my day-to-day work is focused on enterprise DevSecOps and Kubernetes
+						  platform engineering in production environments: designing and operating HA
+						  RKE2 clusters, Rancher lifecycle management, HAProxy + Keepalived failover,
+						  and secure storage/ingress patterns.
+						</p>
+						<p className="pt-4">
+						  I build and improve CI/CD pipelines with strong security gates (SAST, SCA,
+						  image scanning, DAST, and validation), enforce secure secret handling and
+						  policy controls, and continuously verify resilience through observability,
+						  post-deploy health checks, and chaos testing.
 						</p>
 
 						<div className="h-6 lg:h-10"></div>

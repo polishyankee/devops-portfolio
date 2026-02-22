@@ -44,5 +44,26 @@ export const ProjectsList = () => (
     >
       Rolled out a company-wide CI/CD standard with policy-as-code to enforce security and quality controls in pipelines.
     </Card>
+
+    <Card
+      title="Chaos engineering for critical servers and services"
+      tags={['Chaos Engineering', 'RKE2', 'Kubernetes', 'High Availability', 'Resilience']}
+    >
+      Implemented controlled chaos scenarios for nodes, control-plane components, VIP failover, and storage to continuously validate self-healing and platform stability.
+    </Card>
+
+    <Card
+      title="Ansible AWX rollout for platform automation"
+      tags={['Ansible', 'AWX', 'RHEL 9', 'IaC', 'Automation']}
+    >
+      Introduced AWX with standardized inventories, job templates, and RBAC to execute repeatable, auditable, and idempotent operational workflows.
+    </Card>
+
+    <Card
+      title="Dynatrace Managed + SaaS monitoring implementation"
+      tags={['Dynatrace', 'Managed', 'SaaS', 'Observability', 'Alerting']}
+    >
+      Deployed end-to-end monitoring for infrastructure and applications with health validation, synthetic checks, and actionable alerting for faster incident response.
+    </Card>
   </CardGrid>
 );
