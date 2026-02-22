@@ -215,57 +215,57 @@ export default function Home() {
 						Work Experience
 					</SectionTitle>
 					<div className="text-slate-400 sm:text-lg lg:text-xl leading-relaxed max-w-prose">
-					<p>
-						  To view my full work experience, please{' '}
-						  <a
-						    href="https://www.linkedin.com/in/kamil-stasica/"
-						    className={fancyLinkClasses}
-						  >
-						    visit my Linkedin page
-						  </a>
-						  .
+						<p>
+							I design and operate production-grade DevSecOps and Kubernetes platforms for
+							critical financial services, supporting environments used by commercial banks,
+							cooperative banks, and SKOK credit unions.
+						</p>
+						<p className="pt-4">
+							My scope covers infrastructure, platform, and application layers with a strong
+							focus on high availability, security-by-default, and deterministic automation.
 						</p>
 
 						<div className="h-6 lg:h-10"></div>
 
 						<h2 className="text-slate-200 font-medium pb-1 lg:pb-1.5">
-						  Asseco Poland SA &mdash; 2023&nbsp;&ndash;&nbsp;Current
+							Kubernetes and Platform Engineering
 						</h2>
 						<p>
-						  I work as a <span className="font-medium">DevOps Engineer</span> at{' '}
-						  <a href="https://asseco.com/" className={linkClasses}>
-						    Asseco Poland SA
-						  </a>
-						  , one of the largest IT companies in Central and Eastern Europe, where I
-						  support platforms used across most of Poland&rsquo;s commercial banks,
-						  cooperative banks, and SKOK credit unions.
-						</p>
-						<p className="pt-4">
-						  Most of my day-to-day work is focused on enterprise DevSecOps and Kubernetes
-						  platform engineering in production environments: designing and operating HA
-						  RKE2 clusters, Rancher lifecycle management, HAProxy + Keepalived failover,
-						  and secure storage/ingress patterns.
-						</p>
-						<p className="pt-4">
-						  I build and improve CI/CD pipelines with strong security gates (SAST, SCA,
-						  image scanning, DAST, and validation), enforce secure secret handling and
-						  policy controls, and continuously verify resilience through observability,
-						  post-deploy health checks, and chaos testing.
+							I architect and maintain HA RKE2 platforms, including multi-master control
+							planes, Rancher lifecycle management, HAProxy + Keepalived VIP failover,
+							secure ingress patterns, and dedicated storage designs for stateful workloads.
 						</p>
 
 						<div className="h-6 lg:h-10"></div>
 
 						<h2 className="text-slate-200 font-medium pb-1 lg:pb-1.5">
-						  Aplitt &mdash; 2021&nbsp;&ndash;&nbsp;2023
+							DevSecOps and CI/CD Security Controls
 						</h2>
 						<p>
-						  At{' '}
-						  <a href="https://aplitt.pl/" className={linkClasses}>
-						    Aplitt
-						  </a>
-						  , I worked as a <span className="font-medium">Junior Application Administrator</span>.
-						  I was responsible for application maintenance, monitoring, deployments, and
-						  supporting production systems in a financial services environment.
+							I build and standardize multi-stage CI/CD pipelines across Azure DevOps and
+							GitLab CI, including mandatory gates such as lint, SAST, SCA, image scanning,
+							e2e validation, DAST, chaos testing, and release validation.
+						</p>
+						<p className="pt-4">
+							I enforce secure secret handling and policy controls with hard requirements:
+							no plaintext credentials in repositories, logs, artifacts, or Helm values,
+							and strict use of runtime secret injection mechanisms.
+						</p>
+
+						<div className="h-6 lg:h-10"></div>
+
+						<h2 className="text-slate-200 font-medium pb-1 lg:pb-1.5">
+							Resilience, Observability, and Operational Quality
+						</h2>
+						<p>
+							I continuously verify platform resilience through controlled chaos scenarios
+							(node termination, control-plane restarts, VIP/storage failure simulation) and
+							validate self-healing, reconciliation, and scaling behavior.
+						</p>
+						<p className="pt-4">
+							I run post-deploy validation with node and system pod health checks, storage
+							provisioning tests, synthetic transactions, security re-validation, and alert
+							verification, while keeping runbooks and recovery procedures production-ready.
 						</p>
 					</div>
 				</div>
