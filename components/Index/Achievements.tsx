@@ -1,6 +1,5 @@
 import { CardGrid } from 'components/CardGrid/CardGrid';
 import { Card } from 'components/CardGrid/Card';
-import { linkClasses } from 'components/styles';
 
 export const Achievements = () => (
   <CardGrid>

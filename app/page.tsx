@@ -2,344 +2,421 @@ import { SectionTitle } from 'components/SectionTitle';
 import { LinkToSection } from 'components/Index/LinkToSection';
 import { ProjectsList } from 'components/Index/ProjectsList';
 import { Achievements } from 'components/Index/Achievements';
-import {
-	containerClasses,
-	fancyLinkClasses,
-	linkClasses,
-	sectionBodyClasses
-} from 'components/styles';
+import { HeroVisual } from 'components/Index/HeroVisual';
+import { containerClasses, fancyLinkClasses, linkClasses, sectionBodyClasses } from 'components/styles';
+
+const navigation = [
+	{ label: 'About', href: '#about' },
+	{ label: 'Experience', href: '#experience' },
+	{ label: 'Projects', href: '#projects' },
+	{ label: 'Achievements', href: '#achievements' },
+	{ label: 'Contact', href: '#contact' }
+];
+
+const heroLinks = [
+	{
+		title: 'About Me',
+		href: 'about',
+		description:
+			'I moved from programming into platform engineering because I care about what happens after code ships.'
+	},
+	{
+		title: 'Work Experience',
+		href: 'experience',
+		description:
+			'I design production platforms and delivery standards used in regulated financial environments.'
+	},
+	{
+		title: 'Projects',
+		href: 'projects',
+		description:
+			'I build GitOps, CI/CD, multi-region Kubernetes, cloud migration, and DevSecOps automation programs.'
+	},
+	{
+		title: 'Achievements',
+		href: 'achievements',
+		description:
+			'I validate the work with certifications focused on Kubernetes, cloud-native operations, and security.'
+	}
+];
+
+const highlights = [
+	{ label: 'Primary focus', value: 'Platform engineering' },
+	{ label: 'Core stack', value: 'Kubernetes, GitOps, CI/CD' },
+	{ label: 'Domain', value: 'Financial services' }
+];
+
+const principles = [
+	{
+		title: 'API-first operations',
+		description:
+			'I prefer reproducible systems over hand-tuned infrastructure. Desired state, automation, and versioned change are the baseline.'
+	},
+	{
+		title: 'Security in the lane',
+		description:
+			'I push security controls into the delivery path itself, so quality gates are mandatory instead of optional.'
+	},
+	{
+		title: 'Resilience by rehearsal',
+		description:
+			'I treat chaos validation, recovery testing, and observability as part of delivery, not incident folklore.'
+	}
+];
+
+const capabilityAreas = [
+	{
+		title: 'Kubernetes and Platform Engineering',
+		description:
+			'I architect HA RKE2 environments with Rancher lifecycle management, secure ingress, resilient storage, and clean operating patterns for stateful and stateless workloads.'
+	},
+	{
+		title: 'DevSecOps and CI/CD Controls',
+		description:
+			'I standardize delivery pipelines across Azure DevOps and GitLab with mandatory gates for linting, SAST, SCA, image scanning, runtime validation, and release quality.'
+	},
+	{
+		title: 'Resilience and Operational Quality',
+		description:
+			'I validate real-world failure scenarios, tune observability, and keep recovery procedures production-ready for systems that cannot afford guesswork.'
+	}
+];
+
+const availabilityNotes = [
+	'Interested in platform engineering, DevSecOps, cloud automation, and Kubernetes-heavy work.',
+	'Comfortable with high-availability design, migration programs, and regulated delivery environments.',
+	'Best contact path: email or LinkedIn.'
+];
+
+const panelClasses =
+	'relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] p-8 md:p-10 lg:p-12 backdrop-blur-xl shadow-[0_30px_120px_rgba(2,8,23,0.55)]';
+const panelGlowClasses =
+	'pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(186,230,253,0.16),transparent_32%),linear-gradient(180deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0)_22%)]';
 
 export default function Home() {
 	return (
-		<div>
-			<main className="bg-slate-950">
-				<div className="min-h-screen flex flex-col justify-center relative">
-					<div className={`${containerClasses} z-10`}>
-						<div className="absolute inset-0 -z-10 overflow-hidden" aria-hidden="true">
-							<svg
-								className="absolute top-0 bottom-1/4 right-[-10rem] m-auto opacity-75 h-full"
-								viewBox="0 0 1030 692"
-								fill="none"
-								xmlns="http://www.w3.org/2000/svg"
-								preserveAspectRatio="none"
-							>
-								<g clipPath="url(#clip0_1_2)">
-									<g filter="url(#filter0_f_1_2)">
-										<path
-											fillRule="evenodd"
-											clipRule="evenodd"
-											d="M565.961 140.952C591.238 143.377 611.103 153.895 626.589 165.972C639.812 176.285 642.38 188.967 644.079 201.878C645.998 216.455 649.43 231.277 636.841 243.855C620.328 260.354 598.271 278.626 565.961 279.929C532.882 281.263 508.699 263.552 484.725 249.988C459.901 235.943 428.597 222.207 428.01 201.878C427.417 181.389 454.158 164.342 481.895 152.092C505.825 141.523 536.494 138.125 565.961 140.952Z"
-											fill="#0369A1"
-										/>
-									</g>
-									<g filter="url(#filter1_f_1_2)">
-										<path
-											d="M853.75 241.796L625.224 144.393C620.241 142.269 604.579 135.671 597.46 144.393C591.764 151.371 604.104 158.931 610.986 161.839C685.975 196.406 837.376 265.929 843.071 267.479C850.191 269.418 863.717 271.356 871.548 260.695C877.813 252.166 862.293 244.542 853.75 241.796Z"
-											fill="#D946EF"
-										/>
-									</g>
-									<g filter="url(#filter2_f_1_2)">
-										<path
-											fillRule="evenodd"
-											clipRule="evenodd"
-											d="M749.539 295.201C773.46 300.354 779.762 334.033 796.795 353.562C813.441 372.648 843.56 380.086 846.663 406.556C849.874 433.948 829.553 457.29 811.099 475.593C793.917 492.635 772.431 501.247 749.539 502.887C724.726 504.664 694.662 507.18 679.579 485.013C664.844 463.357 683.954 433.797 683.994 406.556C684.034 379.411 666.476 351.015 679.811 328.36C694.269 303.796 723.766 289.649 749.539 295.201Z"
-											fill="#1D4ED8"
-											fillOpacity="0.75"
-										/>
-									</g>
-									<g filter="url(#filter3_f_1_2)">
-										<path
-											fillRule="evenodd"
-											clipRule="evenodd"
-											d="M599.838 240.664C622.091 242.884 644.355 240.073 663.377 252.275C688.638 268.48 718.614 287.533 720.847 318.29C723.131 349.753 699.488 378.338 673.742 395.073C652.025 409.189 625.453 397.264 599.838 396.946C574.805 396.635 544.029 412.956 527.68 393.259C511.276 373.497 535.372 344.372 534.551 318.29C533.669 290.249 505.033 259.378 522.801 238.252C540.374 217.357 573.253 238.012 599.838 240.664Z"
-											fill="#6D28D9"
-											fillOpacity="0.4"
-										/>
-									</g>
-								</g>
-								<defs>
-									<filter
-										id="filter0_f_1_2"
-										x="228"
-										y="-60"
-										width="618"
-										height="540"
-										filterUnits="userSpaceOnUse"
-										colorInterpolationFilters="sRGB"
-									>
-										<feFlood floodOpacity="0" result="BackgroundImageFix" />
-										<feBlend
-											mode="normal"
-											in="SourceGraphic"
-											in2="BackgroundImageFix"
-											result="shape"
-										/>
-										<feGaussianBlur stdDeviation="100" result="effect1_foregroundBlur_1_2" />
-									</filter>
-									<filter
-										id="filter1_f_1_2"
-										x="496"
-										y="40"
-										width="477"
-										height="329"
-										filterUnits="userSpaceOnUse"
-										colorInterpolationFilters="sRGB"
-									>
-										<feFlood floodOpacity="0" result="BackgroundImageFix" />
-										<feBlend
-											mode="normal"
-											in="SourceGraphic"
-											in2="BackgroundImageFix"
-											result="shape"
-										/>
-										<feGaussianBlur stdDeviation="50" result="effect1_foregroundBlur_1_2" />
-									</filter>
-									<filter
-										id="filter2_f_1_2"
-										x="554"
-										y="174"
-										width="413"
-										height="450"
-										filterUnits="userSpaceOnUse"
-										colorInterpolationFilters="sRGB"
-									>
-										<feFlood floodOpacity="0" result="BackgroundImageFix" />
-										<feBlend
-											mode="normal"
-											in="SourceGraphic"
-											in2="BackgroundImageFix"
-											result="shape"
-										/>
-										<feGaussianBlur stdDeviation="60" result="effect1_foregroundBlur_1_2" />
-									</filter>
-									<filter
-										id="filter3_f_1_2"
-										x="397"
-										y="109"
-										width="444"
-										height="414"
-										filterUnits="userSpaceOnUse"
-										colorInterpolationFilters="sRGB"
-									>
-										<feFlood floodOpacity="0" result="BackgroundImageFix" />
-										<feBlend
-											mode="normal"
-											in="SourceGraphic"
-											in2="BackgroundImageFix"
-											result="shape"
-										/>
-										<feGaussianBlur stdDeviation="60" result="effect1_foregroundBlur_1_2" />
-									</filter>
-									<clipPath id="clip0_1_2">
-										<rect width="1030" height="692" fill="white" />
-									</clipPath>
-								</defs>
-							</svg>
-						</div>
+		<main className="relative overflow-hidden bg-[#020817] text-white">
+			<div className="pointer-events-none absolute inset-0" aria-hidden="true">
+				<div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(141,220,255,0.2),transparent_24%),radial-gradient(circle_at_82%_14%,rgba(103,232,249,0.14),transparent_18%),linear-gradient(180deg,#081120_0%,#020817_48%,#020617_100%)]"></div>
+				<div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.08)_1px,transparent_1px)] bg-[size:88px_88px] opacity-25 [mask-image:radial-gradient(circle_at_center,white,transparent_92%)]"></div>
+				<div className="absolute left-1/2 top-0 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full bg-sky-300/15 blur-[140px]"></div>
+			</div>
 
-						<SectionTitle big accentText="Hi there! I'm">
-							Kamil Stasica
-						</SectionTitle>
-						<div className="h-4 sm:h-0"></div>
-						<div className={sectionBodyClasses}>
-							<LinkToSection title="About Me" href="about">
-  								I build reliable systems, automate workflows, play board games, and explore big ideas.
-							</LinkToSection>
-							<LinkToSection title="Work Experience" href="experience">
-								I support most of Poland&rsquo;s commercial banks, cooperative banks, and SKOK credit unions.
-							</LinkToSection>
-							<LinkToSection title="Projects" href="projects">
-  								I design and deliver DevOps solutions: CI/CD standardization, GitOps, multi-region K8s, cloud migrations, and security automation.
-							</LinkToSection>
-							<LinkToSection title="Achievements" href="achievements">
-  								Certified in DevSecOps and cloud technologies — validating my focus on automation, security, and scalable infrastructure.
-							</LinkToSection>
-						</div>
-						<div className="h-6 md:h-8 xl:h-16"></div>
-						<div className="font-mono uppercase text-slate-400 text-sm sm:text-base">
-							<a className={fancyLinkClasses} href="mailto:stasicakamil@hotmail.com" target="_blank">
-								Email
-							</a>{' '}
-							·{' '}
+			<header className="relative z-20">
+				<div className={`${containerClasses} flex items-center justify-between py-6 lg:py-8`}>
+					<a href="#top" className="inline-flex items-center gap-3">
+						<span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.05] font-mono text-sm text-accent shadow-[0_16px_40px_rgba(2,8,23,0.4)]">
+							KS
+						</span>
+						<span className="hidden sm:block">
+							<span className="block text-sm font-medium text-white">Kamil Stasica</span>
+							<span className="block font-mono text-[0.68rem] uppercase tracking-[0.28em] text-slate-400">
+								DevOps / Platform Engineering
+							</span>
+						</span>
+					</a>
+
+					<nav className="hidden items-center gap-6 lg:flex">
+						{navigation.map(({ label, href }) => (
 							<a
-								className={fancyLinkClasses}
-								href="https://github.com/polishyankee"
-								target="_blank"
+								key={href}
+								href={href}
+								className="font-mono text-xs uppercase tracking-[0.28em] text-slate-400 transition hover:text-sky-100"
 							>
-								Github
-							</a>{' '}
-							·{' '}
-							<a
-								className={fancyLinkClasses}
-								href="https://www.linkedin.com/in/kamil-stasica/"
-								target="_blank"
-							>
-								Linkedin
+								{label}
 							</a>
+						))}
+					</nav>
+
+					<a
+						href="#contact"
+						className="inline-flex items-center rounded-full border border-sky-200/20 bg-sky-300/10 px-4 py-2 font-mono text-xs uppercase tracking-[0.24em] text-sky-100 transition hover:border-sky-200/35 hover:bg-sky-300/15"
+					>
+						Let&apos;s talk
+					</a>
+				</div>
+			</header>
+
+			<section id="top" className="relative z-10">
+				<div className={`${containerClasses} pb-20 pt-8 lg:pb-28 lg:pt-10`}>
+					<div className="grid items-center gap-16 xl:grid-cols-[minmax(0,1.02fr)_minmax(420px,0.98fr)]">
+						<div>
+							<span className="inline-flex items-center rounded-full border border-sky-200/15 bg-sky-300/10 px-4 py-2 font-mono text-[0.7rem] uppercase tracking-[0.32em] text-accent">
+								Platform Engineering • DevSecOps • Kubernetes
+							</span>
+
+							<p className="mt-8 font-mono text-sm uppercase tracking-[0.4em] text-accent/90">
+								Kamil Stasica
+							</p>
+							<h1 className="mt-5 max-w-5xl text-5xl font-semibold leading-[0.92] tracking-[-0.06em] text-white sm:text-6xl lg:text-7xl xl:text-[5.8rem]">
+								I build delivery platforms that stay{' '}
+								<span className="bg-gradient-to-r from-sky-50 via-sky-200 to-cyan-200 bg-clip-text text-transparent">
+									fast, secure, and calm in production
+								</span>
+								.
+							</h1>
+							<p className="mt-8 max-w-2xl text-lg leading-8 text-slate-300/85 lg:text-xl">
+								I design and operate DevSecOps platforms, Kubernetes foundations, and cloud
+								automation for financial systems where reliability is not optional.
+							</p>
+
+							<div className="mt-10 flex flex-wrap gap-4">
+								<a
+									href="#projects"
+									className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-sky-200 via-sky-300 to-cyan-200 px-6 py-3 font-medium text-slate-950 shadow-[0_18px_60px_rgba(125,211,252,0.3)] transition hover:scale-[1.01]"
+								>
+									View projects
+								</a>
+								<a
+									href="mailto:stasicakamil@hotmail.com"
+									className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/[0.04] px-6 py-3 font-medium text-slate-100 transition hover:border-sky-200/30 hover:bg-white/[0.06]"
+								>
+									Email me
+								</a>
+							</div>
+
+							<div className="mt-10 grid gap-4 md:grid-cols-2">
+								{heroLinks.map(({ title, href, description }) => (
+									<LinkToSection key={href} title={title} href={href}>
+										{description}
+									</LinkToSection>
+								))}
+							</div>
+
+							<dl className="mt-10 grid gap-4 sm:grid-cols-3">
+								{highlights.map(({ label, value }) => (
+									<div
+										key={label}
+										className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-4"
+									>
+										<dt className="font-mono text-[0.68rem] uppercase tracking-[0.28em] text-slate-500">
+											{label}
+										</dt>
+										<dd className="mt-3 text-sm text-slate-100 sm:text-base">{value}</dd>
+									</div>
+								))}
+							</dl>
+
+							<div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3 font-mono text-xs uppercase tracking-[0.24em] text-slate-400">
+								<a className={fancyLinkClasses} href="mailto:stasicakamil@hotmail.com" target="_blank">
+									Email
+								</a>
+								<a
+									className={fancyLinkClasses}
+									href="https://github.com/polishyankee"
+									target="_blank"
+								>
+									GitHub
+								</a>
+								<a
+									className={fancyLinkClasses}
+									href="https://www.linkedin.com/in/kamil-stasica/"
+									target="_blank"
+								>
+									LinkedIn
+								</a>
+							</div>
+						</div>
+
+						<HeroVisual />
+					</div>
+				</div>
+			</section>
+
+			<section className={`${containerClasses} relative z-10`} id="about">
+				<div className={panelClasses}>
+					<div className={panelGlowClasses} aria-hidden="true"></div>
+					<div className="relative grid gap-12 xl:grid-cols-[minmax(0,0.95fr)_minmax(320px,0.7fr)]">
+						<div>
+							<SectionTitle big accentText="01">
+								About Me
+							</SectionTitle>
+							<div className={sectionBodyClasses}>
+								<p>
+									My path started in software development, but I became most interested in what
+									happens after the code is written: how systems run, scale, recover, and stay
+									trustworthy in production.
+								</p>
+								<p>
+									Today I focus on DevOps and platform engineering. I like building CI/CD
+									pipelines, automating infrastructure, and creating cloud-native environments
+									that let teams ship faster without lowering the quality bar.
+								</p>
+								<p>
+									I care about observability, security, resilience, and cost awareness because a
+									good platform is not only available, but also understandable and sustainable.
+								</p>
+							</div>
+						</div>
+
+						<div className="grid gap-4 self-start">
+							{principles.map(({ title, description }) => (
+								<div
+									key={title}
+									className="rounded-[1.5rem] border border-white/10 bg-slate-950/50 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]"
+								>
+									<p className="font-mono text-[0.68rem] uppercase tracking-[0.28em] text-accent">
+										{title}
+									</p>
+									<p className="mt-3 text-sm leading-7 text-slate-300/80 sm:text-base">
+										{description}
+									</p>
+								</div>
+							))}
 						</div>
 					</div>
 				</div>
+			</section>
 
-				<div className={containerClasses} id="about">
-					<SectionTitle big accentText="01">
-						About Me
-					</SectionTitle>
-					<div className={sectionBodyClasses}>
-  						<p>
-  						  My journey into technology began with programming, but over time I became
-  						  fascinated by what happens <em>after</em> the code is written — how systems
-  						  run, scale, and stay reliable in the real world.
-  						</p>
-  						<p>
-  						  Today, I focus on DevOps and platform engineering. I love building CI/CD
-  						  pipelines, automating infrastructure, and designing cloud-native systems
-  						  that are both resilient and scalable. For me, DevOps is about empowering
-  						  teams: reducing friction, increasing velocity, and making sure developers
-  						  can ship with confidence.
-  						</p>
-  						<p>
-  						  Beyond servers and pipelines, I’m curious about observability, security,
-  						  and cost optimization — because a system isn’t just about uptime, it’s also
-  						  about trust, insight, and sustainability.
-  						</p>
-  						<p>
-  						  I strive to bring energy, technical depth, and a growth mindset to every
-  						  team I’m part of, always looking for ways to automate the boring stuff so
-  						  we can focus on what really matters.
-  						</p>
+			<section className={`${containerClasses} relative z-10`} id="experience">
+				<div className={`${panelClasses} mt-12 lg:mt-16`}>
+					<div className={panelGlowClasses} aria-hidden="true"></div>
+					<div className="relative">
+						<SectionTitle big accentText="02">
+							Work Experience
+						</SectionTitle>
+						<div className={sectionBodyClasses}>
+							<p>
+								I design and operate production-grade DevSecOps and Kubernetes platforms for
+								critical financial services, supporting environments used by commercial banks,
+								cooperative banks, and SKOK credit unions.
+							</p>
+							<p>
+								My work spans infrastructure, platform, and application delivery layers with a
+								focus on high availability, security-by-default, and deterministic automation.
+							</p>
+						</div>
+
+						<div className="mt-10 grid gap-5 xl:grid-cols-3">
+							{capabilityAreas.map(({ title, description }) => (
+								<div
+									key={title}
+									className="rounded-[1.75rem] border border-white/10 bg-white/[0.03] p-6 shadow-[0_16px_60px_rgba(2,8,23,0.4)]"
+								>
+									<h2 className="text-xl font-semibold tracking-[-0.03em] text-white">{title}</h2>
+									<p className="mt-4 text-sm leading-7 text-slate-300/80 sm:text-base">
+										{description}
+									</p>
+								</div>
+							))}
+						</div>
 					</div>
 				</div>
+			</section>
 
-				<div className={containerClasses} id="experience">
-					<SectionTitle big accentText="02">
-						Work Experience
-					</SectionTitle>
-					<div className="text-slate-400 sm:text-lg lg:text-xl leading-relaxed max-w-prose">
-						<p>
-							I design and operate production-grade DevSecOps and Kubernetes platforms for
-							critical financial services, supporting environments used by commercial banks,
-							cooperative banks, and SKOK credit unions.
-						</p>
-						<p className="pt-4">
-							My scope covers infrastructure, platform, and application layers with a strong
-							focus on high availability, security-by-default, and deterministic automation.
-						</p>
-
-						<div className="h-6 lg:h-10"></div>
-
-						<h2 className="text-slate-200 font-medium pb-1 lg:pb-1.5">
-							Kubernetes and Platform Engineering
-						</h2>
-						<p>
-							I architect and maintain HA RKE2 platforms, including multi-master control
-							planes, Rancher lifecycle management, HAProxy + Keepalived VIP failover,
-							secure ingress patterns, and dedicated storage designs for stateful workloads.
-						</p>
-
-						<div className="h-6 lg:h-10"></div>
-
-						<h2 className="text-slate-200 font-medium pb-1 lg:pb-1.5">
-							DevSecOps and CI/CD Security Controls
-						</h2>
-						<p>
-							I build and standardize multi-stage CI/CD pipelines across Azure DevOps and
-							GitLab CI, including mandatory gates such as lint, SAST, SCA, image scanning,
-							e2e validation, DAST, chaos testing, and release validation.
-						</p>
-						<p className="pt-4">
-							I enforce secure secret handling and policy controls with hard requirements:
-							no plaintext credentials in repositories, logs, artifacts, or Helm values,
-							and strict use of runtime secret injection mechanisms.
-						</p>
-
-						<div className="h-6 lg:h-10"></div>
-
-						<h2 className="text-slate-200 font-medium pb-1 lg:pb-1.5">
-							Resilience, Observability, and Operational Quality
-						</h2>
-						<p>
-							I continuously verify platform resilience through controlled chaos scenarios
-							(node termination, control-plane restarts, VIP/storage failure simulation) and
-							validate self-healing, reconciliation, and scaling behavior.
-						</p>
-						<p className="pt-4">
-							I run post-deploy validation with node and system pod health checks, storage
-							provisioning tests, synthetic transactions, security re-validation, and alert
-							verification, while keeping runbooks and recovery procedures production-ready.
-						</p>
+			<section className={`${containerClasses} relative z-10`} id="projects">
+				<div className={`${panelClasses} mt-12 lg:mt-16`}>
+					<div className={panelGlowClasses} aria-hidden="true"></div>
+					<div className="relative">
+						<SectionTitle big accentText="03">
+							Selected Projects
+						</SectionTitle>
+						<div className={sectionBodyClasses}>
+							<p>
+								Examples of the delivery platforms, migration programs, and operational controls
+								I&apos;ve built across cloud, Kubernetes, and regulated environments.
+							</p>
+						</div>
+						<div className="mt-10 lg:mt-12">
+							<ProjectsList />
+						</div>
 					</div>
 				</div>
+			</section>
 
-				<div className={containerClasses} id="projects">
-					<SectionTitle big accentText="03">
-						Projects
-					</SectionTitle>
-					<div className={sectionBodyClasses}>
-						<p>I'm always working on something new. Below are a few of my favorite projects!</p>
-					</div>
-					<div className="h-8 lg:h-12"></div>
-					<ProjectsList />
-				</div>
-
-				<div className={containerClasses} id="achievements">
-					<SectionTitle big accentText="04">
-						Achievements
-					</SectionTitle>
-					<Achievements />
-				</div>
-
-				<div className={containerClasses} id="contact">
-					<SectionTitle big accentText="05">
-						Contact Me
-					</SectionTitle>
-					<div className={sectionBodyClasses}>
-						<p>I really enjoy meeting new people! Please feel free to reach out.</p>
-					</div>
-					<div className="font-mono text-slate-400 sm:text-lg md:text-xl mt-4 md:mt-6">
-						<a className={linkClasses} href="mailto:nathan.r.wang@gmail.com" target="_blank">
-							Email
-						</a>{' '}
-						·{' '}
-						<a className={linkClasses} href="https://github.com/thecodingwizard" target="_blank">
-							Github
-						</a>{' '}
-						·{' '}
-						<a
-							className={linkClasses}
-							href="https://www.linkedin.com/in/nathan-r-wang/"
-							target="_blank"
-						>
-							Linkedin
-						</a>
+			<section className={`${containerClasses} relative z-10`} id="achievements">
+				<div className={`${panelClasses} mt-12 lg:mt-16`}>
+					<div className={panelGlowClasses} aria-hidden="true"></div>
+					<div className="relative">
+						<SectionTitle big accentText="04">
+							Certifications
+						</SectionTitle>
+						<div className={sectionBodyClasses}>
+							<p>
+								Formal validation of the areas I work in most: Kubernetes, DevSecOps, and secure
+								cloud-native delivery.
+							</p>
+						</div>
+						<div className="mt-10 lg:mt-12">
+							<Achievements />
+						</div>
 					</div>
 				</div>
+			</section>
 
-				<div className="h-8 md:h-12 lg:h-16"></div>
+			<section className={`${containerClasses} relative z-10`} id="contact">
+				<div className={`${panelClasses} mt-12 lg:mt-16`}>
+					<div className={panelGlowClasses} aria-hidden="true"></div>
+					<div className="relative grid gap-10 xl:grid-cols-[minmax(0,0.88fr)_minmax(280px,0.52fr)]">
+						<div>
+							<SectionTitle big accentText="05">
+								Let&apos;s build something reliable
+							</SectionTitle>
+							<div className={sectionBodyClasses}>
+								<p>
+									I&apos;m interested in platform engineering, DevSecOps, cloud automation, and
+									production-grade Kubernetes work. If you want to talk about infrastructure that
+									needs to scale cleanly and fail gracefully, reach out.
+								</p>
+							</div>
 
-				<div className={`${containerClasses} pb-6 md:pb-12 lg:pb-24`}>
-					<div className="font-mono text-slate-400 text-xs md:text-sm lg:text-base">
-						Copyright {new Date().getFullYear()} Kamil Stasica.
-						<br />
-						This site is built with{' '}
-						<a className={linkClasses} href="https://nextjs.org/" target="_blank">
-							Next.js
-						</a>{' '}
+							<div className="mt-8 flex flex-wrap gap-4">
+								<a
+									href="mailto:stasicakamil@hotmail.com"
+									className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-sky-200 via-sky-300 to-cyan-200 px-6 py-3 font-medium text-slate-950 shadow-[0_18px_60px_rgba(125,211,252,0.3)] transition hover:scale-[1.01]"
+								>
+									stasicakamil@hotmail.com
+								</a>
+								<a
+									className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/[0.04] px-6 py-3 font-medium text-slate-100 transition hover:border-sky-200/30 hover:bg-white/[0.06]"
+									href="https://www.linkedin.com/in/kamil-stasica/"
+									target="_blank"
+								>
+									LinkedIn
+								</a>
+							</div>
+						</div>
+
+						<div className="rounded-[1.75rem] border border-white/10 bg-slate-950/55 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+							<p className="font-mono text-[0.68rem] uppercase tracking-[0.28em] text-accent">
+								Availability
+							</p>
+							<div className="mt-5 space-y-4">
+								{availabilityNotes.map((note) => (
+									<div
+										key={note}
+										className="rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-4 text-sm leading-7 text-slate-300/80"
+									>
+										{note}
+									</div>
+								))}
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<footer className={`${containerClasses} relative z-10 pb-10 pt-8 md:pb-16`}>
+				<div className="flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-slate-400 md:flex-row md:items-center md:justify-between">
+					<p>Copyright {new Date().getFullYear()} Kamil Stasica.</p>
+					<p>
+						Built with <a className={linkClasses} href="https://nextjs.org/" target="_blank">Next.js</a>{' '}
 						and{' '}
 						<a className={linkClasses} href="https://tailwindcss.com/" target="_blank">
 							Tailwind CSS
 						</a>
-						. View the source code on{' '}
+						. Source on{' '}
 						<a
 							className={linkClasses}
-							href="https://polishyankee.github.io/devops-portfolio/"
+							href="https://github.com/polishyankee/devops-portfolio"
 							target="_blank"
 						>
-							Github
+							GitHub
 						</a>
 						.
-					</div>
+					</p>
 				</div>
-			</main>
-		</div>
+			</footer>
+		</main>
 	);
 }

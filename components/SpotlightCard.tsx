@@ -1,38 +1,31 @@
 import classNames from 'classnames';
-import { motion, useMotionTemplate, useMotionValue } from 'framer-motion';
 import { MouseEvent } from 'react';
 
-// Thanks Build UI Recipes!
 export default function SpotlightCard({
 	children,
-	className = 'rounded-xl border border-white/10 bg-slate-900 shadow-2xl'
+	className = 'rounded-[1.75rem] border border-white/10 bg-white/[0.04] shadow-[0_20px_80px_rgba(2,8,23,0.55)] backdrop-blur-xl'
 }) {
-	let mouseX = useMotionValue(0);
-	let mouseY = useMotionValue(0);
-
-	function handleMouseMove({ currentTarget, clientX, clientY }: MouseEvent) {
+	function handleMouseMove({
+		currentTarget,
+		clientX,
+		clientY
+	}: MouseEvent<HTMLDivElement>) {
 		let { left, top } = currentTarget.getBoundingClientRect();
 
-		mouseX.set(clientX - left);
-		mouseY.set(clientY - top);
+		currentTarget.style.setProperty('--mouse-x', `${clientX - left}px`);
+		currentTarget.style.setProperty('--mouse-y', `${clientY - top}px`);
 	}
 
 	return (
 		<div
-			// className="group relative max-w-md border border-white/10 bg-gray-900 px-8 py-16 shadow-2xl"
-			className={classNames('group relative', className)}
+			className={classNames('group relative [--mouse-x:50%] [--mouse-y:50%]', className)}
 			onMouseMove={handleMouseMove}
 		>
-			<motion.div
-				className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
+			<div
+				className="pointer-events-none absolute -inset-px rounded-[1.75rem] opacity-0 transition duration-300 group-hover:opacity-100"
 				style={{
-					background: useMotionTemplate`
-            radial-gradient(
-              450px circle at ${mouseX}px ${mouseY}px,
-              rgba(14, 165, 233, 0.075),
-              transparent 80%
-            )
-          `
+					background:
+						'radial-gradient(450px circle at var(--mouse-x) var(--mouse-y), rgba(186, 230, 253, 0.18), rgba(56, 189, 248, 0.1) 35%, transparent 80%)'
 				}}
 			/>
 			{children}
