@@ -148,7 +148,7 @@ export default function Home() {
 							<p className="mt-8 font-mono text-lg font-medium uppercase tracking-[0.34em] text-accent/90 sm:text-xl lg:text-2xl">
 								Kamil Stasica
 							</p>
-							<h1 className="mt-4 max-w-4xl text-4xl font-semibold leading-[0.94] tracking-[-0.055em] text-white sm:text-5xl lg:text-6xl xl:text-[4.9rem]">
+							<h1 className="mt-4 max-w-3xl text-3xl font-semibold leading-[0.98] tracking-[-0.05em] text-white sm:text-4xl lg:text-5xl xl:text-[4.2rem]">
 								I build delivery platforms that stay{' '}
 								<span className="bg-gradient-to-r from-sky-50 via-sky-200 to-cyan-200 bg-clip-text text-transparent">
 									fast, secure, and calm in production
