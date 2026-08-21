@@ -3,11 +3,14 @@ import { LinkToSection } from 'components/Index/LinkToSection';
 import { ProjectsList } from 'components/Index/ProjectsList';
 import { Achievements } from 'components/Index/Achievements';
 import { HeroVisual } from 'components/Index/HeroVisual';
+import { PracticeAccordion } from 'components/Index/PracticeAccordion';
+import { TechStack } from 'components/Index/TechStack';
 import { containerClasses, fancyLinkClasses, linkClasses, sectionBodyClasses } from 'components/styles';
 
 const navigation = [
 	{ label: 'About', href: '#about' },
 	{ label: 'Experience', href: '#experience' },
+	{ label: 'Stack', href: '#stack' },
 	{ label: 'Projects', href: '#projects' },
 	{ label: 'Achievements', href: '#achievements' },
 	{ label: 'Contact', href: '#contact' }
@@ -61,24 +64,6 @@ const principles = [
 		title: 'Resilience by rehearsal',
 		description:
 			'I treat chaos validation, recovery testing, and observability as part of delivery, not incident folklore.'
-	}
-];
-
-const capabilityAreas = [
-	{
-		title: 'Kubernetes and Platform Engineering',
-		description:
-			'I architect HA RKE2 environments with Rancher lifecycle management, secure ingress, resilient storage, and clean operating patterns for stateful and stateless workloads.'
-	},
-	{
-		title: 'DevSecOps and CI/CD Controls',
-		description:
-			'I standardize delivery pipelines across Azure DevOps and GitLab with mandatory gates for linting, SAST, SCA, image scanning, runtime validation, and release quality.'
-	},
-	{
-		title: 'Resilience and Operational Quality',
-		description:
-			'I validate real-world failure scenarios, tune observability, and keep recovery procedures production-ready for systems that cannot afford guesswork.'
 	}
 ];
 
@@ -136,8 +121,8 @@ export default function Home() {
 
 			<section id="top" className="relative z-10">
 				<div className={`${containerClasses} pb-20 pt-8 lg:pb-28 lg:pt-10`}>
-					<div className="grid items-center gap-16 xl:grid-cols-[minmax(0,1.02fr)_minmax(420px,0.98fr)]">
-						<div>
+					<div className="grid min-w-0 items-center gap-16 xl:grid-cols-[minmax(0,1.02fr)_minmax(420px,0.98fr)]">
+						<div className="min-w-0">
 							<span className="inline-flex items-center rounded-full border border-accent/30 bg-accent/10 px-4 py-2 font-mono text-[0.7rem] uppercase tracking-[0.32em] text-accent">
 								Platform Engineering • DevSecOps • Kubernetes
 							</span>
@@ -274,17 +259,27 @@ export default function Home() {
 							</p>
 						</div>
 
-						<div className="mt-10 grid gap-5 xl:grid-cols-3">
-							{capabilityAreas.map(({ title, description }) => (
-								<div key={title} className="border border-white/10 bg-white/[0.02] p-6">
-									<h2 className="text-xl font-bold uppercase tracking-[-0.02em] text-white">
-										{title}
-									</h2>
-									<p className="mt-4 text-sm leading-7 text-slate-300/80 sm:text-base">
-										{description}
-									</p>
-								</div>
-							))}
+						<div className="mt-10 lg:mt-12">
+							<PracticeAccordion />
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section className={`${containerClasses} relative z-10`} id="stack">
+				<div className={`${panelClasses} mt-12 lg:mt-16`}>
+					<div className="relative">
+						<SectionTitle big accentText="03">
+							Stack
+						</SectionTitle>
+						<div className={sectionBodyClasses}>
+							<p>
+								Every project on this page ships through this stack — infrastructure, delivery,
+								security, and observability, wired together end to end.
+							</p>
+						</div>
+						<div className="mt-10 lg:mt-12">
+							<TechStack />
 						</div>
 					</div>
 				</div>
@@ -293,7 +288,7 @@ export default function Home() {
 			<section className={`${containerClasses} relative z-10`} id="projects">
 				<div className={`${panelClasses} mt-12 lg:mt-16`}>
 					<div className="relative">
-						<SectionTitle big accentText="03">
+						<SectionTitle big accentText="04">
 							Selected Projects
 						</SectionTitle>
 						<div className={sectionBodyClasses}>
@@ -312,7 +307,7 @@ export default function Home() {
 			<section className={`${containerClasses} relative z-10`} id="achievements">
 				<div className={`${panelClasses} mt-12 lg:mt-16`}>
 					<div className="relative">
-						<SectionTitle big accentText="04">
+						<SectionTitle big accentText="05">
 							Certifications
 						</SectionTitle>
 						<div className={sectionBodyClasses}>
@@ -332,7 +327,7 @@ export default function Home() {
 				<div className={`${panelClasses} mt-12 lg:mt-16`}>
 					<div className="relative grid gap-10 xl:grid-cols-[minmax(0,0.88fr)_minmax(280px,0.52fr)]">
 						<div>
-							<SectionTitle big accentText="05">
+							<SectionTitle big accentText="06">
 								Let&apos;s build something reliable
 							</SectionTitle>
 							<div className={sectionBodyClasses}>

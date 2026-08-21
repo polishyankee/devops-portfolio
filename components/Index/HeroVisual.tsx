@@ -26,7 +26,7 @@ const layers = [
 ];
 
 export const HeroVisual = () => (
-	<div className="relative mx-auto w-full max-w-[620px] xl:mx-0">
+	<div className="relative mx-auto min-w-0 w-full max-w-[620px] xl:mx-0">
 		<div className="relative border border-white/10 border-t-2 border-t-accent/60 bg-ink-800/60">
 			<div
 				className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:42px_42px] [mask-image:linear-gradient(180deg,white,transparent_94%)]"
@@ -61,7 +61,9 @@ export const HeroVisual = () => (
 					<div className="mt-5 space-y-4">
 						{commandLines.map(({ command, status }) => (
 							<div key={command} className="border border-white/8 bg-white/[0.02] p-4">
-								<div className="font-mono text-sm text-accent">$ {command}</div>
+								<div className="overflow-x-auto font-mono text-sm whitespace-nowrap text-accent">
+									$ {command}
+								</div>
 								<div className="mt-2 text-sm leading-6 text-slate-400">{status}</div>
 							</div>
 						))}
