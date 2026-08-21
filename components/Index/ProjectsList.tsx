@@ -4,6 +4,15 @@ import { CardGrid } from 'components/CardGrid/CardGrid';
 export const ProjectsList = () => (
   <CardGrid>
     <Card
+      title="Ansible-managed Kubernetes platform for Poland's largest leasing company"
+      tags={['Ansible', 'Kubernetes', 'GitOps', 'Argo CD', 'Flux', 'RKE2']}
+    >
+      Built a fully declarative Kubernetes platform where Ansible owns the entire cluster lifecycle — no manual
+      operations on the cluster. All application delivery runs through GitOps (Argo CD / Flux); nothing is ever
+      applied by hand with kubectl.
+    </Card>
+
+    <Card
       title="Migration from Jenkins to GitLab CI + GitOps"
       tags={['GitLab CI', 'Argo CD', 'GitOps', 'SonarQube', 'Trivy']}
     >

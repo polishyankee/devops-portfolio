@@ -50,7 +50,7 @@ const principles = [
 	{
 		title: 'API-first operations',
 		description:
-			'I prefer reproducible systems over hand-tuned infrastructure. Desired state, automation, and versioned change are the baseline.'
+			'I prefer reproducible systems over hand-tuned infrastructure. Desired state, automation, and versioned change are the baseline — no manual cluster operations, ever.'
 	},
 	{
 		title: 'Security in the lane',
@@ -89,23 +89,19 @@ const availabilityNotes = [
 ];
 
 const panelClasses =
-	'relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] p-8 md:p-10 lg:p-12 backdrop-blur-xl shadow-[0_30px_120px_rgba(2,8,23,0.55)]';
-const panelGlowClasses =
-	'pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(186,230,253,0.16),transparent_32%),linear-gradient(180deg,rgba(255,255,255,0.06)_0%,rgba(255,255,255,0)_22%)]';
+	'relative overflow-hidden border border-white/10 border-t-2 border-t-accent/50 bg-ink-800/40 p-8 md:p-10 lg:p-12';
 
 export default function Home() {
 	return (
-		<main className="relative overflow-hidden bg-[#020817] text-white">
+		<main className="relative overflow-hidden bg-ink-900 text-white">
 			<div className="pointer-events-none absolute inset-0" aria-hidden="true">
-				<div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(141,220,255,0.2),transparent_24%),radial-gradient(circle_at_82%_14%,rgba(103,232,249,0.14),transparent_18%),linear-gradient(180deg,#081120_0%,#020817_48%,#020617_100%)]"></div>
-				<div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.08)_1px,transparent_1px)] bg-[size:88px_88px] opacity-25 [mask-image:radial-gradient(circle_at_center,white,transparent_92%)]"></div>
-				<div className="absolute left-1/2 top-0 h-[42rem] w-[42rem] -translate-x-1/2 rounded-full bg-sky-300/15 blur-[140px]"></div>
+				<div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:88px_88px] opacity-40 [mask-image:radial-gradient(circle_at_center,white,transparent_92%)]"></div>
 			</div>
 
-			<header className="relative z-20">
+			<header className="sticky top-0 z-20 border-b border-white/10 bg-ink-900/95">
 				<div className={`${containerClasses} flex items-center justify-between py-6 lg:py-8`}>
 					<a href="#top" className="inline-flex items-center gap-3">
-						<span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.05] font-mono text-sm text-accent shadow-[0_16px_40px_rgba(2,8,23,0.4)]">
+						<span className="flex h-11 w-11 items-center justify-center border border-accent/40 bg-ink-800 font-mono text-sm text-accent">
 							KS
 						</span>
 						<span className="hidden sm:block">
@@ -121,7 +117,7 @@ export default function Home() {
 							<a
 								key={href}
 								href={href}
-								className="font-mono text-xs uppercase tracking-[0.28em] text-slate-400 transition hover:text-sky-100"
+								className="font-mono text-xs uppercase tracking-[0.28em] text-slate-400 transition hover:text-accent"
 							>
 								{label}
 							</a>
@@ -130,9 +126,10 @@ export default function Home() {
 
 					<a
 						href="#contact"
-						className="inline-flex items-center rounded-full border border-sky-200/20 bg-sky-300/10 px-4 py-2 font-mono text-xs uppercase tracking-[0.24em] text-sky-100 transition hover:border-sky-200/35 hover:bg-sky-300/15"
+						className="inline-flex items-center gap-2 border border-accent/40 bg-accent/10 px-4 py-2 font-mono text-xs uppercase tracking-[0.24em] text-accent transition hover:bg-accent/20"
 					>
 						Let&apos;s talk
+						<span aria-hidden="true">→</span>
 					</a>
 				</div>
 			</header>
@@ -141,19 +138,16 @@ export default function Home() {
 				<div className={`${containerClasses} pb-20 pt-8 lg:pb-28 lg:pt-10`}>
 					<div className="grid items-center gap-16 xl:grid-cols-[minmax(0,1.02fr)_minmax(420px,0.98fr)]">
 						<div>
-							<span className="inline-flex items-center rounded-full border border-sky-200/15 bg-sky-300/10 px-4 py-2 font-mono text-[0.7rem] uppercase tracking-[0.32em] text-accent">
+							<span className="inline-flex items-center rounded-full border border-accent/30 bg-accent/10 px-4 py-2 font-mono text-[0.7rem] uppercase tracking-[0.32em] text-accent">
 								Platform Engineering • DevSecOps • Kubernetes
 							</span>
 
 							<p className="mt-8 font-mono text-lg font-medium uppercase tracking-[0.34em] text-accent/90 sm:text-xl lg:text-2xl">
 								Kamil Stasica
 							</p>
-							<h1 className="mt-4 max-w-3xl text-3xl font-semibold leading-[0.98] tracking-[-0.05em] text-white sm:text-4xl lg:text-5xl xl:text-[4.2rem]">
+							<h1 className="mt-4 max-w-3xl text-3xl font-bold uppercase leading-[0.98] tracking-[-0.02em] text-white sm:text-4xl lg:text-5xl xl:text-[4.2rem]">
 								I build delivery platforms that stay{' '}
-								<span className="bg-gradient-to-r from-sky-50 via-sky-200 to-cyan-200 bg-clip-text text-transparent">
-									fast, secure, and calm in production
-								</span>
-								.
+								<span className="text-accent">fast, secure, and calm</span> in production.
 							</h1>
 							<p className="mt-8 max-w-2xl text-lg leading-8 text-slate-300/85 lg:text-xl">
 								I design and operate DevSecOps platforms, Kubernetes foundations, and cloud
@@ -163,13 +157,14 @@ export default function Home() {
 							<div className="mt-10 flex flex-wrap gap-4">
 								<a
 									href="#projects"
-									className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-sky-200 via-sky-300 to-cyan-200 px-6 py-3 font-medium text-slate-950 shadow-[0_18px_60px_rgba(125,211,252,0.3)] transition hover:scale-[1.01]"
+									className="inline-flex items-center gap-2 bg-accent px-6 py-3 font-mono text-sm font-semibold uppercase tracking-[0.1em] text-ink-950 transition hover:bg-accent/90"
 								>
 									View projects
+									<span aria-hidden="true">→</span>
 								</a>
 								<a
 									href="mailto:stasicakamil@hotmail.com"
-									className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/[0.04] px-6 py-3 font-medium text-slate-100 transition hover:border-sky-200/30 hover:bg-white/[0.06]"
+									className="inline-flex items-center justify-center border border-white/15 bg-transparent px-6 py-3 font-mono text-sm font-semibold uppercase tracking-[0.1em] text-slate-100 transition hover:border-accent/50 hover:text-accent"
 								>
 									Email me
 								</a>
@@ -185,10 +180,7 @@ export default function Home() {
 
 							<dl className="mt-10 grid gap-4 sm:grid-cols-3">
 								{highlights.map(({ label, value }) => (
-									<div
-										key={label}
-										className="rounded-[1.5rem] border border-white/10 bg-white/[0.03] p-4"
-									>
+									<div key={label} className="border border-white/10 bg-white/[0.02] p-4">
 										<dt className="font-mono text-[0.68rem] uppercase tracking-[0.28em] text-slate-500">
 											{label}
 										</dt>
@@ -225,7 +217,6 @@ export default function Home() {
 
 			<section className={`${containerClasses} relative z-10`} id="about">
 				<div className={panelClasses}>
-					<div className={panelGlowClasses} aria-hidden="true"></div>
 					<div className="relative grid gap-12 xl:grid-cols-[minmax(0,0.95fr)_minmax(320px,0.7fr)]">
 						<div>
 							<SectionTitle big accentText="01">
@@ -251,10 +242,7 @@ export default function Home() {
 
 						<div className="grid gap-4 self-start">
 							{principles.map(({ title, description }) => (
-								<div
-									key={title}
-									className="rounded-[1.5rem] border border-white/10 bg-slate-950/50 p-5 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]"
-								>
+								<div key={title} className="border border-white/10 bg-ink-950/40 p-5">
 									<p className="font-mono text-[0.68rem] uppercase tracking-[0.28em] text-accent">
 										{title}
 									</p>
@@ -270,7 +258,6 @@ export default function Home() {
 
 			<section className={`${containerClasses} relative z-10`} id="experience">
 				<div className={`${panelClasses} mt-12 lg:mt-16`}>
-					<div className={panelGlowClasses} aria-hidden="true"></div>
 					<div className="relative">
 						<SectionTitle big accentText="02">
 							Work Experience
@@ -289,11 +276,10 @@ export default function Home() {
 
 						<div className="mt-10 grid gap-5 xl:grid-cols-3">
 							{capabilityAreas.map(({ title, description }) => (
-								<div
-									key={title}
-									className="rounded-[1.75rem] border border-white/10 bg-white/[0.03] p-6 shadow-[0_16px_60px_rgba(2,8,23,0.4)]"
-								>
-									<h2 className="text-xl font-semibold tracking-[-0.03em] text-white">{title}</h2>
+								<div key={title} className="border border-white/10 bg-white/[0.02] p-6">
+									<h2 className="text-xl font-bold uppercase tracking-[-0.02em] text-white">
+										{title}
+									</h2>
 									<p className="mt-4 text-sm leading-7 text-slate-300/80 sm:text-base">
 										{description}
 									</p>
@@ -306,7 +292,6 @@ export default function Home() {
 
 			<section className={`${containerClasses} relative z-10`} id="projects">
 				<div className={`${panelClasses} mt-12 lg:mt-16`}>
-					<div className={panelGlowClasses} aria-hidden="true"></div>
 					<div className="relative">
 						<SectionTitle big accentText="03">
 							Selected Projects
@@ -326,7 +311,6 @@ export default function Home() {
 
 			<section className={`${containerClasses} relative z-10`} id="achievements">
 				<div className={`${panelClasses} mt-12 lg:mt-16`}>
-					<div className={panelGlowClasses} aria-hidden="true"></div>
 					<div className="relative">
 						<SectionTitle big accentText="04">
 							Certifications
@@ -346,7 +330,6 @@ export default function Home() {
 
 			<section className={`${containerClasses} relative z-10`} id="contact">
 				<div className={`${panelClasses} mt-12 lg:mt-16`}>
-					<div className={panelGlowClasses} aria-hidden="true"></div>
 					<div className="relative grid gap-10 xl:grid-cols-[minmax(0,0.88fr)_minmax(280px,0.52fr)]">
 						<div>
 							<SectionTitle big accentText="05">
@@ -363,12 +346,12 @@ export default function Home() {
 							<div className="mt-8 flex flex-wrap gap-4">
 								<a
 									href="mailto:stasicakamil@hotmail.com"
-									className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-sky-200 via-sky-300 to-cyan-200 px-6 py-3 font-medium text-slate-950 shadow-[0_18px_60px_rgba(125,211,252,0.3)] transition hover:scale-[1.01]"
+									className="inline-flex items-center gap-2 bg-accent px-6 py-3 font-mono text-sm font-semibold uppercase tracking-[0.1em] text-ink-950 transition hover:bg-accent/90"
 								>
 									stasicakamil@hotmail.com
 								</a>
 								<a
-									className="inline-flex items-center justify-center rounded-full border border-white/12 bg-white/[0.04] px-6 py-3 font-medium text-slate-100 transition hover:border-sky-200/30 hover:bg-white/[0.06]"
+									className="inline-flex items-center justify-center border border-white/15 bg-transparent px-6 py-3 font-mono text-sm font-semibold uppercase tracking-[0.1em] text-slate-100 transition hover:border-accent/50 hover:text-accent"
 									href="https://www.linkedin.com/in/kamil-stasica/"
 									target="_blank"
 								>
@@ -377,16 +360,13 @@ export default function Home() {
 							</div>
 						</div>
 
-						<div className="rounded-[1.75rem] border border-white/10 bg-slate-950/55 p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)]">
+						<div className="border border-white/10 bg-ink-950/40 p-6">
 							<p className="font-mono text-[0.68rem] uppercase tracking-[0.28em] text-accent">
 								Availability
 							</p>
 							<div className="mt-5 space-y-4">
 								{availabilityNotes.map((note) => (
-									<div
-										key={note}
-										className="rounded-2xl border border-white/8 bg-white/[0.03] px-4 py-4 text-sm leading-7 text-slate-300/80"
-									>
+									<div key={note} className="border border-white/8 bg-white/[0.02] px-4 py-4 text-sm leading-7 text-slate-300/80">
 										{note}
 									</div>
 								))}

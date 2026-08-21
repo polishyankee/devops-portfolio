@@ -8,7 +8,7 @@ import GradientBorderCard from 'components/GradientBorderCard';
 
 const cardContainerClasses = 'group flex h-full flex-col text-left';
 const cardClasses =
-	'flex h-full flex-col overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.04] p-5 sm:p-6 shadow-[0_20px_80px_rgba(2,8,23,0.55)] backdrop-blur-xl transition duration-300 hover:-translate-y-1 hover:border-sky-200/35 hover:bg-white/[0.06]';
+	'flex h-full flex-col border border-white/10 bg-ink-800/50 p-5 sm:p-6 transition duration-200 hover:-translate-y-0.5 hover:border-accent/50';
 
 export const Card = ({
 	title,
@@ -38,7 +38,7 @@ export const Card = ({
 					{tags.map((tag) => (
 						<span
 							key={tag}
-							className="rounded-full border border-sky-200/10 bg-sky-300/10 px-3 py-1 font-mono text-[0.68rem] uppercase tracking-[0.2em] text-sky-100/80"
+							className="rounded-full border border-accent/20 bg-accent/10 px-3 py-1 font-mono text-[0.68rem] uppercase tracking-[0.2em] text-accent/90"
 						>
 							{tag}
 						</span>

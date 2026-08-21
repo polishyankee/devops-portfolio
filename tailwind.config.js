@@ -10,8 +10,15 @@ module.exports = {
         sans: ['Space Grotesk', ...defaultTheme.fontFamily.sans],
       },
       colors: {
-        homepageIcon: '#8DDCFF',
-        accent: '#8DDCFF',
+        homepageIcon: '#B6FF2E',
+        accent: '#B6FF2E',
+        ink: {
+          950: '#14171B',
+          900: '#1F2329',
+          800: '#262B32',
+          700: '#333A42',
+          600: '#454E58',
+        },
         slate: colors.slate,
       },
       zIndex: {

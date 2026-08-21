@@ -11,7 +11,7 @@ export const SectionTitle = ({
 }) => (
 	<>
 		{accentText && (
-			<span className="inline-flex items-center rounded-full border border-sky-200/15 bg-sky-300/10 px-3 py-1 font-mono text-[0.7rem] uppercase tracking-[0.32em] text-accent">
+			<span className="inline-flex items-center rounded-full border border-accent/30 bg-accent/10 px-3 py-1 font-mono text-[0.7rem] uppercase tracking-[0.32em] text-accent">
 				{accentText}
 			</span>
 		)}
