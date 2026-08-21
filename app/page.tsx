@@ -5,6 +5,7 @@ import { Achievements } from 'components/Index/Achievements';
 import { HeroVisual } from 'components/Index/HeroVisual';
 import { PracticeAccordion } from 'components/Index/PracticeAccordion';
 import { TechStack } from 'components/Index/TechStack';
+import { Industries } from 'components/Index/Industries';
 import { containerClasses, fancyLinkClasses, linkClasses, sectionBodyClasses } from 'components/styles';
 
 const navigation = [
@@ -282,6 +283,12 @@ export default function Home() {
 							<TechStack />
 						</div>
 					</div>
+				</div>
+			</section>
+
+			<section className={`${containerClasses} relative z-10`}>
+				<div className="mt-12 lg:mt-16">
+					<Industries />
 				</div>
 			</section>
 
