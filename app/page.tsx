@@ -6,6 +6,7 @@ import { HeroVisual } from 'components/Index/HeroVisual';
 import { PracticeAccordion } from 'components/Index/PracticeAccordion';
 import { TechStack } from 'components/Index/TechStack';
 import { Industries } from 'components/Index/Industries';
+import { AboutMe } from 'components/Index/AboutMe';
 import { containerClasses, fancyLinkClasses, linkClasses, sectionBodyClasses } from 'components/styles';
 
 const navigation = [
@@ -48,24 +49,6 @@ const highlights = [
 	{ label: 'Primary focus', value: 'Platform engineering' },
 	{ label: 'Core stack', value: 'Kubernetes, GitOps, CI/CD' },
 	{ label: 'Domain', value: 'Financial services' }
-];
-
-const principles = [
-	{
-		title: 'API-first operations',
-		description:
-			'I prefer reproducible systems over hand-tuned infrastructure. Desired state, automation, and versioned change are the baseline — no manual cluster operations, ever.'
-	},
-	{
-		title: 'Security in the lane',
-		description:
-			'I push security controls into the delivery path itself, so quality gates are mandatory instead of optional.'
-	},
-	{
-		title: 'Resilience by rehearsal',
-		description:
-			'I treat chaos validation, recovery testing, and observability as part of delivery, not incident folklore.'
-	}
 ];
 
 const availabilityNotes = [
@@ -202,44 +185,7 @@ export default function Home() {
 			</section>
 
 			<section className={`${containerClasses} relative z-10`} id="about">
-				<div className={panelClasses}>
-					<div className="relative grid gap-12 xl:grid-cols-[minmax(0,0.95fr)_minmax(320px,0.7fr)]">
-						<div>
-							<SectionTitle big accentText="01">
-								About Me
-							</SectionTitle>
-							<div className={sectionBodyClasses}>
-								<p>
-									My path started in software development, but I became most interested in what
-									happens after the code is written: how systems run, scale, recover, and stay
-									trustworthy in production.
-								</p>
-								<p>
-									Today I focus on DevOps and platform engineering. I like building CI/CD
-									pipelines, automating infrastructure, and creating cloud-native environments
-									that let teams ship faster without lowering the quality bar.
-								</p>
-								<p>
-									I care about observability, security, resilience, and cost awareness because a
-									good platform is not only available, but also understandable and sustainable.
-								</p>
-							</div>
-						</div>
-
-						<div className="grid gap-4 self-start">
-							{principles.map(({ title, description }) => (
-								<div key={title} className="border border-white/10 bg-ink-950/40 p-5">
-									<p className="font-mono text-[0.68rem] uppercase tracking-[0.28em] text-accent">
-										{title}
-									</p>
-									<p className="mt-3 text-sm leading-7 text-slate-300/80 sm:text-base">
-										{description}
-									</p>
-								</div>
-							))}
-						</div>
-					</div>
-				</div>
+				<AboutMe />
 			</section>
 
 			<section className={`${containerClasses} relative z-10`} id="experience">
